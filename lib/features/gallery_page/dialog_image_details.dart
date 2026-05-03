@@ -55,7 +55,7 @@ class DialogImageDetails extends StatelessWidget {
                       Text(
                         'Title: $title',
                         style: AppTextStyles.mediumText.copyWith(
-                          color: AppColors.blueSecondary,
+                          color: AppColors.black,
                         ),
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
@@ -64,7 +64,7 @@ class DialogImageDetails extends StatelessWidget {
                         'Photographer: $photographer',
                         style: AppTextStyles.mediumText.copyWith(
                           fontSize: 16,
-                          color: AppColors.redSecondary,
+                          color: AppColors.black,
                         ),
                         maxLines: 2,
                         overflow: .ellipsis,
@@ -78,14 +78,14 @@ class DialogImageDetails extends StatelessWidget {
                         description,
                         style: AppTextStyles.mediumText.copyWith(
                           fontSize: 14,
-                          color: AppColors.black,
+                          color: AppColors.darkGrey,
                         ),
                       ),
                       const SizedBox(height: 10),
                       Text(
                         'Date: ${date.length >= 10 ? date.substring(0, 10) : date}',
                         style: AppTextStyles.smallText.copyWith(
-                          color: AppColors.darkGrey,
+                          color: AppColors.black,
                         ),
                       ),
                     ],

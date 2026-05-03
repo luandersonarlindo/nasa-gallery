@@ -225,7 +225,7 @@ class _GalleryPageState extends State<GalleryPage> {
                                 title,
                                 style: AppTextStyles.titleAppBar.copyWith(
                                   fontSize: 18,
-                                  color: AppColors.blueSecondary,
+                                  color: AppColors.black,
                                 ),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
@@ -242,7 +242,7 @@ class _GalleryPageState extends State<GalleryPage> {
                                 photographer ?? 'NASA',
                                 style: AppTextStyles.mediumText.copyWith(
                                   fontSize: 16,
-                                  color: AppColors.redSecondary,
+                                  color: AppColors.black,
                                 ),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
