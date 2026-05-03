@@ -19,7 +19,7 @@ class CustomFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     final defaultBorder = OutlineInputBorder(
       borderSide: const BorderSide(
-        color: AppColors.bluePrimary,
+        color: AppColors.blueSecondary,
         width: 2.0
       ),
       borderRadius: .circular(28)
@@ -31,6 +31,7 @@ class CustomFormField extends StatelessWidget {
       decoration: InputDecoration(
         suffixIcon: sufixIcon,
         labelText: 'Search',
+        labelStyle: TextStyle(color: AppColors.blueSecondary, fontFamily: 'nasalization'),
         focusedBorder: defaultBorder.copyWith(
           borderSide: BorderSide(
             color: AppColors.blueSecondary,

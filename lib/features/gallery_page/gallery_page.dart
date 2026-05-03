@@ -52,17 +52,26 @@ class _GalleryPageState extends State<GalleryPage> {
           ),
         ),
         appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: AppColors.grey,
-          elevation: 4,
+          backgroundColor: AppColors.darkGrey,
+          elevation: 6,
           shadowColor: AppColors.black,
-          shape: Border(
-            bottom: BorderSide(color: AppColors.redPrimary, width: 4),
+          toolbarHeight: 72,
+          shape: const Border(
+            bottom: BorderSide(color: AppColors.redPrimary, width: 3),
           ),
+          centerTitle: true,
           title: Text(
-            'Gallery',
+            "Gallery",
             style: AppTextStyles.titleAppBar.copyWith(
-              color: AppColors.redPrimary,
+              color: AppColors.redSecondary,
+              letterSpacing: -1.44,
+              shadows: const [
+                Shadow(
+                  color: Color(0x33000000),
+                  offset: Offset(0, 4),
+                  blurRadius: 6,
+                ),
+              ],
             ),
           ),
         ),
@@ -133,19 +142,32 @@ class _GalleryPageState extends State<GalleryPage> {
                       final String title = item['data'][0]['title'];
                       final String description = item['data'][0]['description'];
                       final String date = item['data'][0]['date_created'];
-                      final String? photographer = item['data'][0]['photographer'];
-                      
+                      final String? photographer =
+                          item['data'][0]['photographer'];
+
                       return Container(
                         margin: EdgeInsets.only(bottom: 20),
                         decoration: BoxDecoration(
                           borderRadius: .circular(20),
                           color: AppColors.grey,
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Color(0x31000000),
+                              blurRadius: 15,
+                              offset: Offset(0, 4),
+                            ),
+                            BoxShadow(
+                              color: Color(0x19000000),
+                              blurRadius: 6,
+                              offset: Offset(0, 2),
+                            ),
+                          ],
                         ),
                         child: Column(
                           crossAxisAlignment: .stretch,
                           children: [
                             InkWell(
-                              onTap: (){
+                              onTap: () {
                                 showDialog(
                                   context: context,
                                   builder: (context) => DialogImageDetails(
@@ -160,30 +182,29 @@ class _GalleryPageState extends State<GalleryPage> {
                               child: ClipRRect(
                                 borderRadius: .vertical(top: .circular(20)),
                                 child: Image.network(
-                                  loadingBuilder:
-                                      (context, child, loadingProgress) {
-                                        if (loadingProgress == null) return child;
-                                        return SizedBox(
-                                          height: 250,
-                                          child: Center(
-                                            child: SizedBox(
-                                              height: 30,
-                                              child: CircularProgressIndicator(
-                                                color: AppColors.redPrimary,
-                                                value:
-                                                    loadingProgress
-                                                            .expectedTotalBytes !=
-                                                        null
-                                                    ? loadingProgress
-                                                              .cumulativeBytesLoaded /
-                                                          loadingProgress
-                                                              .expectedTotalBytes!
-                                                    : null,
-                                              ),
-                                            ),
+                                  loadingBuilder: (context, child, loadingProgress) {
+                                    if (loadingProgress == null) return child;
+                                    return SizedBox(
+                                      height: 250,
+                                      child: Center(
+                                        child: SizedBox(
+                                          height: 30,
+                                          child: CircularProgressIndicator(
+                                            color: AppColors.redPrimary,
+                                            value:
+                                                loadingProgress
+                                                        .expectedTotalBytes !=
+                                                    null
+                                                ? loadingProgress
+                                                          .cumulativeBytesLoaded /
+                                                      loadingProgress
+                                                          .expectedTotalBytes!
+                                                : null,
                                           ),
-                                        );
-                                      },
+                                        ),
+                                      ),
+                                    );
+                                  },
                                   imageUrl,
                                   height: 250,
                                   fit: BoxFit.cover,
@@ -192,13 +213,36 @@ class _GalleryPageState extends State<GalleryPage> {
                                 ),
                               ),
                             ),
+                            Container(height: 3, color: AppColors.redPrimary),
                             Padding(
-                              padding: .all(12),
+                              padding: const EdgeInsets.only(
+                                left: 12,
+                                right: 12,
+                                top: 12,
+                                bottom: 0,
+                              ),
                               child: Text(
                                 title,
                                 style: AppTextStyles.titleAppBar.copyWith(
-                                  fontSize: 14,
-                                  color: AppColors.white
+                                  fontSize: 18,
+                                  color: AppColors.blueSecondary,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 12,
+                                right: 12,
+                                top: 0,
+                                bottom: 12,
+                              ),
+                              child: Text(
+                                photographer ?? 'NASA',
+                                style: AppTextStyles.mediumText.copyWith(
+                                  fontSize: 16,
+                                  color: AppColors.redSecondary,
                                 ),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,

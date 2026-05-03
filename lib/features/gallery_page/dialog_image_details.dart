@@ -21,22 +21,17 @@ class DialogImageDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 20,
-        vertical: 40,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
       child: Center(
         child: Container(
           height: 520,
           decoration: BoxDecoration(
-            color: AppColors.white,
+            color: AppColors.grey,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Column(
-            mainAxisSize: MainAxisSize
-                .min,
-            crossAxisAlignment: CrossAxisAlignment
-                .stretch,
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               ClipRRect(
                 borderRadius: const BorderRadius.vertical(
@@ -50,6 +45,7 @@ class DialogImageDetails extends StatelessWidget {
                       const Icon(Icons.broken_image, size: 250),
                 ),
               ),
+              Container(height: 3, color: AppColors.redPrimary),
               Flexible(
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.all(12),
@@ -57,7 +53,7 @@ class DialogImageDetails extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        title,
+                        'Title: $title',
                         style: AppTextStyles.mediumText.copyWith(
                           color: AppColors.blueSecondary,
                         ),
@@ -68,7 +64,7 @@ class DialogImageDetails extends StatelessWidget {
                         'Photographer: $photographer',
                         style: AppTextStyles.mediumText.copyWith(
                           fontSize: 16,
-                          color: AppColors.redPrimary,
+                          color: AppColors.redSecondary,
                         ),
                         maxLines: 2,
                         overflow: .ellipsis,
@@ -80,13 +76,16 @@ class DialogImageDetails extends StatelessWidget {
                       ),
                       Text(
                         description,
-                        style: AppTextStyles.mediumText.copyWith(fontSize: 14),
+                        style: AppTextStyles.mediumText.copyWith(
+                          fontSize: 14,
+                          color: AppColors.black,
+                        ),
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        date.length >= 10 ? date.substring(0, 10) : date,
+                        'Date: ${date.length >= 10 ? date.substring(0, 10) : date}',
                         style: AppTextStyles.smallText.copyWith(
-                          color: AppColors.defaultText,
+                          color: AppColors.darkGrey,
                         ),
                       ),
                     ],

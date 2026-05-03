@@ -6,7 +6,7 @@ class AppTextStyles {
   static final String _defaultFontFamily = 'Nasalization';
 
   static TextStyle titleAppBar = TextStyle(
-    fontSize: 40,
+    fontSize: 48,
     fontFamily: _defaultFontFamily,
     fontWeight: .bold,
   );
@@ -24,7 +24,7 @@ class AppTextStyles {
   );
 
   static TextStyle largeText = TextStyle(
-    fontSize: 35,
+    fontSize: 30,
     fontFamily: _defaultFontFamily,
     fontWeight: .normal,
   );
